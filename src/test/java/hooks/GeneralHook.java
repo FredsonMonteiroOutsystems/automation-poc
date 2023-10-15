@@ -20,8 +20,8 @@ public class GeneralHook {
     }
 
     @Before
-    public void testStart() {
-
+    public void testStart(Scenario _scenario) {
+        scenario = _scenario;
     }
 
     @AfterStep
