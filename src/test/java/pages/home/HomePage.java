@@ -1,6 +1,7 @@
 package pages.home;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.base.PageBase;
@@ -19,12 +20,16 @@ public class HomePage extends PageBase {
     // Methods
     public void acceptCookies() {
         buttonCookieAccept.should(Condition.visible);
+        // Added a little sleep to wait for fade in effect
+        Selenide.sleep(2000);
         saveScreenshot();
         buttonCookieAccept.click();
     }
 
     public void accessLogin(){
         divLogin.should(Condition.visible);
+        // Added a little sleep to wait for fade out effect
+        Selenide.sleep(2000);
         saveScreenshot();
         divLogin.click();
     }
