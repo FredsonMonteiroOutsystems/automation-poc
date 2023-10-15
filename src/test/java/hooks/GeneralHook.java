@@ -1,19 +1,24 @@
 package hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import helpers.GlobalParameters;
+import io.cucumber.java.*;
 
 public class GeneralHook {
 
     public static Scenario scenario;
 
     // Metrics can be collected using annotations like these in a framework wrapping the project
-    @Before
-    public void testStart() {
+
+    @BeforeAll
+    public static void before_all(){
         // Here could be used to get instance the webdriver for pure Selenium. It's not needed using Selenide
         // Selenide.webdriver() <-  It can be used anytime to call webdriver and be able to use it directly
+        GlobalParameters.getInstance();
+    }
+
+    @Before
+    public void testStart() {
+
     }
 
     @AfterStep
