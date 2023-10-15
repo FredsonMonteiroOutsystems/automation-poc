@@ -1,7 +1,9 @@
 package hooks;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.GlobalParameters;
 import io.cucumber.java.*;
+import io.qameta.allure.selenide.AllureSelenide;
 
 public class GeneralHook {
 
@@ -14,6 +16,7 @@ public class GeneralHook {
         // Here could be used to get instance the webdriver for pure Selenium. It's not needed using Selenide
         // Selenide.webdriver() <-  It can be used anytime to call webdriver and be able to use it directly
         GlobalParameters.getInstance();
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @Before
