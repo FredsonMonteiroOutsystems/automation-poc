@@ -1,12 +1,11 @@
-package stepdefs.geral;
+package stepdefs;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import helpers.GlobalParameters;
 import io.cucumber.java.en.Given;
-import io.qameta.allure.Step;
 
-public class GeralStepdefs {
+public class GeneralStepdefs {
 
     // Steps
     @Given("the OutSystems training website is opened")

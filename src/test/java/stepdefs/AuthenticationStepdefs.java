@@ -1,4 +1,4 @@
-package stepdefs.outsystem;
+package stepdefs;
 
 import helpers.GlobalParameters;
 import io.cucumber.java.en.And;
