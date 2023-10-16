@@ -14,7 +14,7 @@ public class GeralStepdefs {
         Configuration.holdBrowserOpen = true; // Used as true for help in development
         Configuration.headless = true; // Used for CLI or CI/CD environments
         Configuration.timeout = 30000;
-        Selenide.open(GlobalParameters.getInstance().getProperty("base_url_training"));
+        Selenide.open(GlobalParameters.getInstance().getProperty("BASE_URL_TRAINING"));
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
     }
 }

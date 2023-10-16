@@ -13,7 +13,7 @@ public class GeneralHook {
 
     @BeforeAll
     public static void before_all(){
-        // Here could be used to get instance the webdriver for pure Selenium. It's not needed using Selenide
+        // Here could be used to get the webdriver instance for pure Selenium. It's not needed using Selenide
         // Selenide.webdriver() <-  It can be used anytime to call webdriver and be able to use it directly
         GlobalParameters.getInstance();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -26,7 +26,7 @@ public class GeneralHook {
 
     @AfterStep
     public void testAfterStep() {
-        // If you have an approach to take screenshot after each step, it can be done here
+        // If you have an approach to take screenshot after each step, it can be inserted here
         // I prefer to save screenshot in key parts of the script to do not increase the final evidences unnecessarily
     }
 

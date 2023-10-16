@@ -3,14 +3,11 @@ Feature: Authentication tests
 
   Background:
     Given the OutSystems training website is opened
+    And I have a valid User credential
 
   @login @main
-  Scenario Outline: CT_1 - User authentication
+  Scenario: CT_1 - User authentication
     When access login option
-    And enter email <email> to login
-    And enter password <password> to login
-    Then user <email> will be redirected to training page with user logged
-
-    Examples:
-      | email                          | password    |
-      | davi.outsystems.test@gmail.com | Out#Systems |
+    And enter email to login
+    And enter password to login
+    Then user will be redirected to training page with user logged
