@@ -15,6 +15,7 @@ public class AuthenticationStepdefs {
     LoginPage loginPage = new LoginPage();
 
     // Instances of Objects
+    GlobalParameters parameters = GlobalParameters.getInstance();
     LoginUser loginUser = new LoginUser();
     // A context also could be used, but was not necessary in this case because it will be used only in this Stepdefs
 
@@ -45,8 +46,8 @@ public class AuthenticationStepdefs {
 
     @And("I have a valid User credential")
     public void iHaveAValidUserCredential() {
-        String user = GlobalParameters.getInstance().getProperty("USER_PORTAL_TRAINING");
-        String password = GlobalParameters.getInstance().getProperty("PASSWORD_PORTAL_TRAINING");
+        String user = parameters.getProperty("USER_PORTAL_TRAINING");
+        String password = parameters.getProperty("PASSWORD_PORTAL_TRAINING");
         Assert.assertNotNull("Parameter USER_PORTAL_TRAINING not found or hasn't value in ENV", user);
         Assert.assertNotNull("Parameter PASSWORD_PORTAL_TRAINING not found or hasn't value in ENV", password);
         loginUser.setEmail(user);
