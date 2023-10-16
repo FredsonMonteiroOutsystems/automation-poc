@@ -14,4 +14,6 @@ public class Course {
     private String mainContent;
 
     private boolean started;
+
+    private Course[] listOfCourses;
 }

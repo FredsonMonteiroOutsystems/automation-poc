@@ -1,4 +1,4 @@
-package stepdefs;
+package stepdefs.general;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

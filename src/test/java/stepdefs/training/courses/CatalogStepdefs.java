@@ -1,10 +1,10 @@
-package stepdefs;
+package stepdefs.training.courses;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TrainingCoursesStepdefs {
+public class CatalogStepdefs {
     @When("access menu {}")
     public void accessMenuTrainingCourses(String menuPath) {
 
@@ -18,7 +18,11 @@ public class TrainingCoursesStepdefs {
     public void selectTheCourse(String course) {
     }
 
-    @Then("title, sidebar, main content and start option will be displayed")
-    public void titleSidebarMainContentAndStartOptionWillBeDisplayed() {
+    @Then("title, sidebar and main content will be displayed")
+    public void titleSidebarMainContentWillBeDisplayed() {
+    }
+
+    @Then("selected curse will be opened to continue")
+    public void selectedCurseWillBeOpenedToContinue() {
     }
 }

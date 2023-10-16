@@ -1,7 +1,7 @@
 @courses
 Feature: Courses tests
 
-  # Many kinds of approach can be used here:
+  # There are several approaches that can be used here:
   # Background the Login scenario as I did or create a common method to be called in both of scenarios, for example.
   Background:
     Given the OutSystems training website is opened
@@ -12,14 +12,16 @@ Feature: Courses tests
     Then user will be redirected to training page with user logged
 
 
-  @courses-search-filter-tag @main
+  @courses-search-filter-tag @main-scope
   Scenario Outline: CT_2 - Access the course by searching and filtering using tags
     When access menu Training >> Courses
     And select tags <tags>
     And Select the course <course>
-    Then title, sidebar, main content and start option will be displayed
+    And Select option <menu_option> on sidebar
+    Then course title will be <course>
+    And OutSystems Overview will be available
 
     Examples:
-      | tags                       | course                                 |
-      | Aggregate, Automated Tests | Building Screens with Data             |
-      | Best Practices, Business   | Monitoring Web and Mobile Applications |
+      | tags                       | course                                 | menu_option                            |
+      | Aggregate, Automated Tests | Building Screens with Data             | Displaying Data on Screen              |
+      | Best Practices, Business   | Monitoring Web and Mobile Applications | Monitoring Web and Mobile Applications |

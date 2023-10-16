@@ -5,7 +5,7 @@ Feature: Authentication tests
     Given the OutSystems training website is opened
     And I have a valid User credential
 
-  @login @main
+  @authentication-user @main-scope
   Scenario: CT_1 - User authentication
     When access login option
     And enter email to login

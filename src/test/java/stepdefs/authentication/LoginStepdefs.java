@@ -1,4 +1,4 @@
-package stepdefs;
+package stepdefs.authentication;
 
 import helpers.GlobalParameters;
 import io.cucumber.java.en.And;
@@ -9,7 +9,7 @@ import org.junit.Assert;
 import pages.home.HomePage;
 import pages.home.LoginPage;
 
-public class AuthenticationStepdefs {
+public class LoginStepdefs {
     // Instances of pages
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
