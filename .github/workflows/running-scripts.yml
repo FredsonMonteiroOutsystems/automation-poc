@@ -20,13 +20,13 @@ jobs:
       continue-on-error: true
       run: 
         echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker stop cont-web-automation
-        docker remove cont-web-automation
+        echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker remove cont-web-automation
         
     - name: Build the Docker image
-      run: docker build --build-arg USER_PORTAL_TRAINING=${{ secrets.USER_PORTAL_TRAINING }} --build-arg PASSWORD_PORTAL_TRAINING=${{ secrets.PASSWORD_PORTAL_TRAINING }} -t image-web-automation:1.0 . --no-cache
+      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker build --build-arg USER_PORTAL_TRAINING=${{ secrets.USER_PORTAL_TRAINING }} --build-arg PASSWORD_PORTAL_TRAINING=${{ secrets.PASSWORD_PORTAL_TRAINING }} -t image-web-automation:1.0 . --no-cache
 
     - name: Run the Docker image in a container
-      run: docker run --name cont-web-automation -e USER_PORTAL_TRAINING=${{ secrets.USER_PORTAL_TRAINING }} -e PASSWORD_PORTAL_TRAINING=${{ secrets.PASSWORD_PORTAL_TRAINING }} -d image-web-automation:1.0
+      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker run --name cont-web-automation -e USER_PORTAL_TRAINING=${{ secrets.USER_PORTAL_TRAINING }} -e PASSWORD_PORTAL_TRAINING=${{ secrets.PASSWORD_PORTAL_TRAINING }} -d image-web-automation:1.0
 
     - name: Running Scripts
-      run: docker exec -i cont-web-automation mvn clean test -Dcucumber.filter.tags="@outsystems-training" -Dselenide.headless=true
+      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker exec -i cont-web-automation mvn clean test -Dcucumber.filter.tags="@outsystems-training" -Dselenide.headless=true
