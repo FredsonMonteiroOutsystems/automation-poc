@@ -1,9 +1,9 @@
-package pages.home;
+package pages.training;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import pages.base.PageBase;
+import pages.PageBase;
 
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -22,12 +22,12 @@ public class LoginPage extends PageBase {
 
     // Methods
     public void fillEmailField(String email) {
-        inputEmail.should(Condition.enabled);
+        inputEmail.shouldBe(enabled);
         inputEmail.setValue(email);
     }
 
     public void fillPasswordField(String password) {
-        inputPassword.should(Condition.enabled);
+        inputPassword.shouldBe(enabled);
         inputPassword.setValue(password);
     }
 

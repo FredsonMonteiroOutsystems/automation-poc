@@ -7,7 +7,8 @@ Feature: Authentication tests
 
   @authentication-user @main-scope
   Scenario: CT_1 - User authentication
-    When access login option
+    When accept cookies
+    And access login option
     And enter email to login
     And enter password to login
     Then user will be redirected to training page with user logged

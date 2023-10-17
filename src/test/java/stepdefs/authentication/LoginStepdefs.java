@@ -6,8 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import objects.LoginUser;
 import org.junit.Assert;
-import pages.home.HomePage;
-import pages.home.LoginPage;
+import pages.training.HomePage;
+import pages.training.LoginPage;
 
 public class LoginStepdefs {
     // Instances of pages
@@ -20,9 +20,12 @@ public class LoginStepdefs {
     // A context also could be used, but was not necessary in this case because it will be used only in this Stepdefs
 
     // Steps
+    @When("accept cookies")
+    public void acceptCookies() {
+        homePage.acceptCookies();
+    }
     @When("access login option")
     public void accessLoginOption() {
-        homePage.acceptCookies();
         homePage.accessLogin();
     }
 
