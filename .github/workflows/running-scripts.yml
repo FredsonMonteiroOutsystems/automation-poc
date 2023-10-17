@@ -16,7 +16,7 @@ jobs:
 
     - name: Stop current environment
       continue-on-error: true
-      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker stop cont-web-automation && docker remove cont-web-automation
+      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker remove cont-web-automation -f
         
     - name: Build the Docker image
       run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker build --build-arg USER_PORTAL_TRAINING=${{ secrets.USER_PORTAL_TRAINING }} --build-arg PASSWORD_PORTAL_TRAINING=${{ secrets.PASSWORD_PORTAL_TRAINING }} -t image-web-automation:1.0 . --no-cache
