@@ -18,7 +18,7 @@ jobs:
 
     - name: Stop current environment
       run: 
-        docker stop cont-web-automation
+        echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker stop cont-web-automation
         docker remove cont-web-automation
         
     - name: Build the Docker image
