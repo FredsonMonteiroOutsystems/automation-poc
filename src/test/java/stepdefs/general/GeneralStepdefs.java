@@ -14,6 +14,7 @@ public class GeneralStepdefs {
         Configuration.holdBrowserOpen = true; // Used as true for help in development
         Configuration.headless = true; // Used for CLI or some CI/CD environments
         Configuration.timeout = 60000; // Increased the time because sometimes the website is getting slow
+        Configuration.browserSize = "1920x1080";
         Selenide.open(GlobalParameters.getInstance().getProperty("BASE_URL_TRAINING"));
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
     }
