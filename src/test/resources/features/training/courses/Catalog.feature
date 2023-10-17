@@ -1,4 +1,4 @@
-@courses
+@outsystems-training @courses
 Feature: Courses tests
 
   # There are several approaches that can be considered here:
@@ -19,11 +19,11 @@ Feature: Courses tests
     When I access the menu Training >> Courses
     And I select tags <tags>
     And I choose the course <course>
-    And I pick the <menu_option> option from the sidebar
+    And I pick the <course> option from the sidebar
     Then the course title should be <course>
     And the course should already be started
 
     Examples:
-      | tags                       | course                                | menu_option                           |
-      | Aggregate, Automated Tests | Introduction to Test Automation       | Introduction to Test Automation       |
-      | Best Practices, Business   | Best Practices on Architecture Design | Best Practices on Architecture Design |
+      | tags                       | course                                |
+      | Aggregate, Automated Tests | Introduction to Test Automation       |
+      | Best Practices, Business   | Best Practices on Architecture Design |
