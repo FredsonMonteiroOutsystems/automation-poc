@@ -3,26 +3,47 @@ package stepdefs.training.courses;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import pages.training.courses.CatalogPage;
+import pages.training.courses.TrainingCoursePage;
+import pages.training.general.MainMenu;
 
 public class CatalogStepdefs {
-    @When("access menu {}")
-    public void accessMenuTrainingCourses(String menuPath) {
+    // Instances of pages
+    MainMenu mainMenu = new MainMenu();
+    CatalogPage catalogPage = new CatalogPage();
+    TrainingCoursePage trainingCoursePage = new TrainingCoursePage();
 
+    @When("I access the menu {}")
+    public void iAccessTheMenu(String menuPath) {
+        mainMenu.accessPath(menuPath);
     }
 
-    @And("select tags {}")
-    public void selectTags(String tags) {
+    @And("I select tags {}")
+    public void iSelectTags(String tags) {
+        catalogPage.openTagsDropdownMenu();
+        catalogPage.selectTagsToFilter(tags);
     }
 
-    @And("Select the course {}")
-    public void selectTheCourse(String course) {
+    @And("I choose the course {}")
+    public void iChooseTheCourse(String courseName) {
+        catalogPage.selectCourse(courseName);
     }
 
-    @Then("title, sidebar and main content will be displayed")
-    public void titleSidebarMainContentWillBeDisplayed() {
+    @And("I pick the {} option from the sidebar")
+    public void iPickTheOptionFromTheSidebar(String sidebarOption) {
+        trainingCoursePage.selectMenuContent(sidebarOption);
     }
 
-    @Then("selected curse will be opened to continue")
-    public void selectedCurseWillBeOpenedToContinue() {
+    @Then("the course title should be {}")
+    public void theCourseTitleShouldBe(String courseName) {
+        String courseTitle = trainingCoursePage.getCourseTitle();
+        Assert.assertEquals("The Course Title is different", courseName, courseTitle);
+    }
+
+    @And("the course should already be started")
+    public void theCourseShouldAlreadyBeStarted() {
+        boolean buttonStartVisibility = trainingCoursePage.buttonStartIsVisible();
+        Assert.assertFalse("Button Start still being displayed", buttonStartVisibility);
     }
 }
