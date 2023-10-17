@@ -1,11 +1,11 @@
-package pages.home;
+package pages.training;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import pages.base.PageBase;
+import pages.PageBase;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -19,7 +19,7 @@ public class HomePage extends PageBase {
 
     // Methods
     public void acceptCookies() {
-        buttonCookieAccept.should(Condition.visible);
+        buttonCookieAccept.shouldBe(visible);
         // Added a little sleep to wait for fade in effect
         Selenide.sleep(2000);
         saveScreenshot();
@@ -27,7 +27,7 @@ public class HomePage extends PageBase {
     }
 
     public void accessLogin(){
-        divLogin.should(Condition.visible);
+        divLogin.shouldBe(visible);
         // Added a little sleep to wait for fade out effect
         Selenide.sleep(2000);
         saveScreenshot();
@@ -35,9 +35,9 @@ public class HomePage extends PageBase {
     }
 
     public String getEmailLoggedUser(){
-        divUserProfileIcon.should(Condition.visible);
+        divUserProfileIcon.shouldBe(visible);
         divUserProfileIcon.hover();
-        spanEmailUser.should(Condition.visible);
+        spanEmailUser.shouldBe(visible);
         saveScreenshot();
         return spanEmailUser.getText();
     }
