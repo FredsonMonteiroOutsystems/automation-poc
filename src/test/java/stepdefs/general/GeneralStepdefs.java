@@ -11,11 +11,12 @@ public class GeneralStepdefs {
     @Given("the OutSystems training website is opened")
     public void accessLoginOption() {
         Selenide.closeWebDriver(); // Used to finish any instance of webdriver if each execution will consider a new execution from zero
-        Configuration.holdBrowserOpen = true; // Used as true for help in development
-        Configuration.headless = true; // Used for CLI or some CI/CD environments
+        Configuration.holdBrowserOpen = false; // Used as true for help in development
+        //Configuration.headless = false; // Used for CLI or some CI/CD environments
         Configuration.timeout = 60000; // Increased the time because sometimes the website is getting slow
-        Configuration.browserSize = "1920x1080";
         Selenide.open(GlobalParameters.getInstance().getProperty("BASE_URL_TRAINING"));
-        Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
+        if(!Configuration.headless){
+            Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
+        }
     }
 }
