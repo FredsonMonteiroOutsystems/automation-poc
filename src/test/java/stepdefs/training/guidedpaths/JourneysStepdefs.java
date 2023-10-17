@@ -2,19 +2,14 @@ package stepdefs.training.guidedpaths;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import pages.training.guided_paths.JourneysPage;
 
 public class JourneysStepdefs {
-    @When("access user profile on top menu")
-    public void accessUserProfileOnTopMenu() {
-        
-    }
+    // Instances of Pages
+    JourneysPage journeysPage = new JourneysPage();
 
-    @And("select learn tab in profile")
-    public void selectLearnTabInProfile() {
-        
-    }
-
-    @And("Select a course in learn tab")
-    public void selectACourseInLearnTab() {
+    @And("I select the training journey {}")
+    public void iSelectTheTrainingJourney(String journeyName) {
+        journeysPage.selectJourney(journeyName);
     }
 }

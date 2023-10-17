@@ -1,4 +1,4 @@
-@authentication
+@outsystems-training @authentication
 Feature: Authentication tests
 
   Background:

@@ -37,13 +37,13 @@ public class CatalogStepdefs {
 
     @Then("the course title should be {}")
     public void theCourseTitleShouldBe(String courseName) {
-        String courseTitle = trainingCoursePage.getCourseTitle();
+        String courseTitle = trainingCoursePage.getCourseTitle(courseName);
         Assert.assertEquals("The Course Title is different", courseName, courseTitle);
     }
 
     @And("the course should already be started")
     public void theCourseShouldAlreadyBeStarted() {
-        boolean buttonStartVisibility = trainingCoursePage.buttonStartIsVisible();
-        Assert.assertFalse("Button Start still being displayed", buttonStartVisibility);
+        boolean buttonStartVisibility = trainingCoursePage.checkIfButtonStartNotExist();
+        Assert.assertFalse("The Start button is still displayed", buttonStartVisibility);
     }
 }
