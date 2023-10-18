@@ -23,7 +23,7 @@ public class TrainingCoursePage extends PageBase {
     // Private Methods
     private void clickInMenuSidebarOption(SelenideElement item){
         item.shouldBe(interactable);
-        // Was necessary move scroll to object when running in headless mode
+        // Is necessary move scroll to object when running in headless mode
         scrollToElement(item);
         item.click();
         waitForElementsCollection(itemsCourseMenu);

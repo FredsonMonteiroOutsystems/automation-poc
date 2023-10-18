@@ -8,11 +8,11 @@ Feature: Courses tests
   Background:
     Given the OutSystems training website is opened
     And I have a valid User credential
-    When accept cookies
-    And access login option
-    And enter email to login
-    And enter password to login
-    Then user will be redirected to training page with user logged
+    When I accept the cookies
+    And I access the login option
+    And I enter the email to login
+    And I enter the password to login
+    Then I will be redirected to training page with my user logged
 
   @courses-search-filter-tag @main-scope
   Scenario Outline: CT_2 - Access the course through search and filter by tags

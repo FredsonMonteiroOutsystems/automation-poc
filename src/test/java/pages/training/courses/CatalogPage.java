@@ -47,8 +47,8 @@ public class CatalogPage extends PageBase {
     }
 
     public void selectCourse(String courseName){
-        // Waiting for list with the option is loaded
-        // This list is dynamic, so if you want to do this method explore the entire list you need to scroll for loading
+        // Waiting for the list with the option to load
+        // This list is dynamic, so if you want to do this method explore the entire list you need to scroll for loading more options
         listOfCourses.should(CollectionCondition.containExactTextsCaseSensitive(courseName));
 
         // Getting the right option from the list

@@ -22,15 +22,18 @@ public class GeneralHook {
     @Before
     public void testStart(Scenario _scenario) {
         scenario = _scenario;
+        // The trigger for something can be inserted here
     }
 
     @AfterStep
     public void testAfterStep() {
         // If you have an approach to take screenshot after each step, it can be inserted here
         // I prefer to save screenshot in key parts of the script to do not increase the final evidences unnecessarily
+        // And capture key points of the execution
     }
 
     @After
     public void testEnd() {
+        // The trigger for something can be inserted here
     }
 }

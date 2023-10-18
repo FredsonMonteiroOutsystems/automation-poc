@@ -6,12 +6,9 @@ import com.codeborne.selenide.SelenideElement;
 import helpers.TestUtils;
 import pages.PageBase;
 
-import java.util.Arrays;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.and;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class MainMenu extends PageBase {
@@ -21,6 +18,9 @@ public class MainMenu extends PageBase {
 
     // Methods
     public void accessPath(String path) {
+        // This method is an example of how to accelerate the automation process
+        // We can go to any main menu option reusing it
+
         // Preparing path
         String[] pathItems = TestUtils.separeValuesInArray(path, ">>");
 
