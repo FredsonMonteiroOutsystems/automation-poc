@@ -26,3 +26,9 @@ jobs:
 
     - name: Running Scripts
       run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker exec -i cont-web-automation mvn clean test -Dcucumber.filter.tags="@outsystems-training" -Dselenide.headless=true
+
+    - name: Generating Allure report
+      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S docker exec -i cont-web-automation mvn allure:report
+
+    - name: Publishing report
+      run: echo ${{ secrets.SUDO_VPS_USER }} | sudo -S rm -r /var/www/html/allure-report && docker cp cont-web-automation:/home/automation/target/allure-report /var/www/html
