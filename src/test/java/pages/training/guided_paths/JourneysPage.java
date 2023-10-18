@@ -16,7 +16,7 @@ public class JourneysPage extends PageBase {
 
     // Methods
     public void selectJourney(String journeyName){
-        // Waiting for list with the option is loaded
+        // Waiting for the list with the option to load
         listOfJourneys.should(CollectionCondition.containExactTextsCaseSensitive(journeyName));
 
         // Getting the right option from the list

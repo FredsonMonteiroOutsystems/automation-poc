@@ -20,28 +20,28 @@ public class LoginStepdefs {
     // A context also could be used, but was not necessary in this case because it will be used only in this Stepdefs
 
     // Steps
-    @When("accept cookies")
+    @When("I accept the cookies")
     public void acceptCookies() {
         homePage.acceptCookies();
     }
-    @When("access login option")
+    @When("I access the login option")
     public void accessLoginOption() {
         homePage.accessLogin();
     }
 
-    @And("enter email to login")
+    @And("I enter the email to login")
     public void enterEmailToLogin() {
         loginPage.fillEmailField(loginUser.getEmail());
         loginPage.pressLoginButton();
     }
 
-    @And("enter password to login")
+    @And("I enter the password to login")
     public void enterPasswordToLogin() {
         loginPage.fillPasswordField(loginUser.getPassword());
         loginPage.pressLoginButton();
     }
 
-    @Then("user will be redirected to training page with user logged")
+    @Then("I will be redirected to training page with my user logged")
     public void userWillBeRedirectedToTrainingPageWithUserLogged() {
         String userEmail = homePage.getEmailLoggedUser();
         Assert.assertEquals("Different logged user", loginUser.getEmail(), userEmail);
@@ -51,8 +51,12 @@ public class LoginStepdefs {
     public void iHaveAValidUserCredential() {
         String user = parameters.getProperty("USER_PORTAL_TRAINING");
         String password = parameters.getProperty("PASSWORD_PORTAL_TRAINING");
-        Assert.assertNotNull("Parameter USER_PORTAL_TRAINING not found or hasn't value in ENV", user);
-        Assert.assertNotNull("Parameter PASSWORD_PORTAL_TRAINING not found or hasn't value in ENV", password);
+
+        // Double check is necessary because of missing parameters in cloud executions environment
+        Assert.assertNotNull("Parameter USER_PORTAL_TRAINING not found in ENV", user);
+        Assert.assertFalse("Parameter USER_PORTAL_TRAINING hasn't a value in ENV", user.isEmpty());
+        Assert.assertNotNull("Parameter PASSWORD_PORTAL_TRAINING not found in ENV", password);
+        Assert.assertFalse("Parameter PASSWORD_PORTAL_TRAINING not found or hasn't a value in ENV", password.isEmpty());
         loginUser.setEmail(user);
         loginUser.setPassword(password);
     }
